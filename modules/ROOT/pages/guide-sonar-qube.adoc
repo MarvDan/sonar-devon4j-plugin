@@ -1,0 +1,20 @@
+:toc: macro
+toc::[]
+
+== Guide for SonarQube usage
+
+TODO
+
+==  Governance view
+
+TODO
+
+==  Review view
+
+TODO
+
+==  Links and resources
+
+* https://www.sonarqube.org/features/centralization/
+* https://www.sonarqube.org/features/issues-tracking/
+* https://docs.sonarqube.org/display/SONAR/Documentation

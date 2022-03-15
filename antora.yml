@@ -1,0 +1,5 @@
+name: sonar-devon4j-plugin
+title: Sonar-devon4j-plugin
+version: '1.0'
+nav:
+- modules/ROOT/nav.adoc

@@ -1,0 +1,38 @@
+:toc:
+toc::[]
+
+https://sonarqube.org[SonarQube] is the recommended tool for continuous quality analysis. Ideally you will get it out-of-the-box and pre-configured with the `ProductionLine` otherwise you can set it up yourself what is described here.
+
+==  Prerequisites
+You need to have the following components installed on your server:
+
+* https://www.sonarqube.org/downloads/[SonarQube] version `6.7.1` (LTS) (or above)
+* http://www.oracle.com/technetwork/java/javase/downloads/[Java/JDK] version `1.8`
+* https://nodejs.org/[NodeJS] (latest LTS)
+* https://docs.npmjs.com/getting-started/installing-node#2-update-npm[NPM] (simply do `npm install -g npm@latest`)
+* https://palantir.github.io/tslint/[TSLint] (simply do `npm install -g tslint`)
+
+Inside SonarQube you need to install the following plugins (most of them via `Marketplace` as admin):
+
+* https://github.com/racodond/sonar-css-plugin[CSS / SCSS / Less]
+* http://checkstyle.sourceforge.net/[Checkstyle]
+* https://github.com/SonarQubeCommunity/sonar-findbugs/[Findbugs]
+* https://github.com/SonarQubeCommunity/sonar-pmd[PMD]
+* http://redirect.sonarsource.com/plugins/csharp.html[SonarC#]
+* http://redirect.sonarsource.com/plugins/typescript.html[SonarTS]
+* http://redirect.sonarsource.com/plugins/xml.html[SonarXML]
+* https://github.com/RIGS-IT/sonar-xanitizer[Web]
+* https://github.com/devonfw/sonar-devon-plugin/[Devon Architecture Rules]
+* https://www.owasp.org/index.php/OWASP_SonarQube_Project[OWASP]
+
+==  Quality Profiles
+Import all quality profiles from https://github.com/devonfw/devon-ide/tree/master/settings/src/main/settings/sonarqube/profiles/[here].
+
+Each profile should be set as default. If you hit issues in your projects (missing findings, false-positives, etc.) feel free to adjust the config to your needs. However, be aware that we put a lot of energy into this config and the rules are there for reason. Only drop rules or lower the severity of rules if this really makes sense for your project (and not just for being lazy and getting rid of warnings - instead consider the findings as valuable input).
+
+Further the following rules are not activated in our config because they only make sense in specific situations and need to be configured according to your project:
+
+* `squid:S1451` (Track lack of copyright and license headers)
+
+==  Quality Gates
+Quality gates unfortunately can not be imported and exported. 
